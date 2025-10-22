@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 const uuid = Uuid(); // We are making it static so everyone can accesss.earlier it was final but it shows error
@@ -9,10 +10,10 @@ enum Category{food,leisure,travel,work}
 final formatter = DateFormat.yMd();
 
 const categoryIcon = {
-  Category.food : Icons.lunch_dining,
-  Category.leisure:Icons.movie_creation_rounded,
-  Category.travel:Icons.flight_takeoff_rounded,
-  Category.work:Icons.construction,
+  Category.food : FontAwesomeIcons.burger,
+  Category.leisure:FontAwesomeIcons.solidFaceSmile,
+  Category.travel:FontAwesomeIcons.car,
+  Category.work:FontAwesomeIcons.suitcase,
 };
 
 class ExpenseModel{

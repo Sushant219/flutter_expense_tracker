@@ -1,5 +1,6 @@
 import 'package:expense_tracker_app/model/expense_model.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ListCard extends StatelessWidget {
   const ListCard({super.key, required this.expenses});
@@ -20,7 +21,7 @@ class ListCard extends StatelessWidget {
               children: [
                 //Text(expense.category.toString()),
                 SizedBox(height: 4),
-                Text("${expenses.amount}",
+                Text("\u20B9${expenses.amount}",
                   style:Theme.of(context).textTheme.titleMedium,
                 ) ,
               ],

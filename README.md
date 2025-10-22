@@ -6,19 +6,22 @@ A fully functional Flutter app to track personal expenses with features like:
 - User-friendly UI
 
 ## Screenshots
-![Screenshot1](assets/screenshots/Screenshot1.png)
-![Screenshot2](assets/screenshots/Screenshot2.png)
+![Screenshot1](assets/screenshots/Screenshot4.png)
+![Screenshot2](assets/screenshots/Screenshot5.png)
+![Screenshot2](assets/screenshots/Screenshot6.png)
+![Screenshot2](assets/screenshots/Screenshot7.png)
 
 ## Features
-- Add, edit, and delete expenses
+- Add, Delete and see the Chart of expenses
 - View expenses by category
-- Responsive UI for both Android & iOS
+- Responsive and clean UI
+- Uses FontAwesomeIcons
 
 ## Technologies Used
 - Flutter
 - Dart
-- Firebase (optional)
-- BLoC for state management
+- MVVM 
+- FontAwesomeicons
 
 ## How to Run
 1. Clone the repository

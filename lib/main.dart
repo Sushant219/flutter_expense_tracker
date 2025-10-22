@@ -11,23 +11,19 @@ class MyApp extends StatelessWidget {
 
   // ✅ DARK THEME COLOR SCHEME
   static const kDarkColorScheme = ColorScheme.dark(
-    primary: Colors.deepPurple,
+    primary: Colors.white,
     secondary: Colors.tealAccent,
     surface: Color(0xFF1E1E1E),
-    background: Color(0xFF121212),
     onPrimary: Colors.white,
     onSurface: Colors.white70,
-    onBackground: Colors.white,
   );
 
   // ✅ LIGHT THEME COLOR SCHEME
   static const kLightColorScheme = ColorScheme.light(
-    primary: AppColors.kPrimaryColor,
+    primary: Colors.black,
     secondary: AppColors.kSecondaryColor,
     surface: AppColors.kLightSurface,
-    background: AppColors.kLightBackground,
     onSurface: AppColors.kLightText,
-    onBackground: AppColors.kLightText,
   );
 
   @override
@@ -38,11 +34,10 @@ class MyApp extends StatelessWidget {
 
       // 🌞 LIGHT THEME
       theme: ThemeData.light().copyWith(
-        useMaterial3: true,
         colorScheme: kLightColorScheme,
         scaffoldBackgroundColor: AppColors.kLightBackground,
         cardTheme: const CardThemeData(
-          color: AppColors.color6,
+          color: AppColors.darkGrey6,
           elevation: 4,
           margin: EdgeInsets.symmetric(vertical: 4, horizontal: 2),
         ),
@@ -53,7 +48,7 @@ class MyApp extends StatelessWidget {
         iconTheme: const IconThemeData(color: AppColors.darkGrey2),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            backgroundColor: Colors.black54,
+            backgroundColor: AppColors.darkGrey1,
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             textStyle:
@@ -64,9 +59,8 @@ class MyApp extends StatelessWidget {
 
       // 🌚 DARK THEME
       darkTheme: ThemeData.dark().copyWith(
-        useMaterial3: true,
         colorScheme: kDarkColorScheme,
-        scaffoldBackgroundColor: kDarkColorScheme.background,
+        scaffoldBackgroundColor: AppColors.kDarkBackground,
         cardTheme: const CardThemeData(
           color: AppColors.darkGrey2,
           elevation: 4,
