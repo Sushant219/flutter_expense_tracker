@@ -1,7 +1,8 @@
 import 'package:expense_tracker_app/model/expense_model.dart';
+import 'package:expense_tracker_app/ui/colors.dart';
 import 'package:expense_tracker_app/widgets/list_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ExpenseList extends StatelessWidget {
   const ExpenseList({super.key, required this.expense_of_list,required this.onRemoveExpense});
@@ -15,6 +16,13 @@ class ExpenseList extends StatelessWidget {
           itemBuilder: (context,index){
         return Dismissible(
             key: ValueKey(expense_of_list[index]),
+        background: SizedBox(
+          child: Card(
+
+            color: AppColors.color6,
+            child: Icon(FontAwesomeIcons.trash)
+          ),
+        ),
         onDismissed: (direction){
               onRemoveExpense(expense_of_list[index]);
               print('List Deleted');

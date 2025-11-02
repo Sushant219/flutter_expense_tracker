@@ -31,14 +31,21 @@ class _ExpenseState extends State<Expense> {
     setState(() {
       registeredExpense.remove(expense);
     });
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      duration: const Duration(seconds: 2),
-      content: const Text('Item Deleted!'),
-      action:SnackBarAction(
-          label: 'Undo',
-          onPressed: (){
-            setState(() {
-              registeredExpense.insert(registerIndex, expense);
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          //behavior: SnackBarBehavior.floating,
+          //margin: EdgeInsets.symmetric(horizontal: 50, vertical: MediaQuery.of(context).size.height / 2 - 30),
+          //shape: RoundedRectangleBorder(
+           // borderRadius: BorderRadius.circular(10),
+          //),
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          duration: const Duration(seconds: 2),
+          content: const Text('Item Deleted!'),
+          action:SnackBarAction(
+              label: 'Undo',
+              onPressed: (){
+                setState(() {
+                  registeredExpense.insert(registerIndex, expense);
             });
           }) ,
     ));

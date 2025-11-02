@@ -10,6 +10,8 @@ A fully functional Flutter app to track personal expenses with features like:
 ![Screenshot2](assets/screenshots/Screenshot5.png)
 ![Screenshot2](assets/screenshots/Screenshot6.png)
 ![Screenshot2](assets/screenshots/Screenshot7.png)
+![Screenshot2](assets/screenshots/Screenshot_8.png)
+
 
 ## Features
 - Add, Delete and see the Chart of expenses

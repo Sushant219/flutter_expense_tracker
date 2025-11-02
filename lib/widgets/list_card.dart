@@ -1,6 +1,5 @@
 import 'package:expense_tracker_app/model/expense_model.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ListCard extends StatelessWidget {
   const ListCard({super.key, required this.expenses});

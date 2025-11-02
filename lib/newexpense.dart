@@ -42,27 +42,53 @@ class _NewexpenseState extends State<Newexpense> {
 
 
 
-  void submitExpense(){
+  void submitExpense() {
+    final enteredTitle = _titleController.text.trim();
     final enteredAmount = double.tryParse(_priceController.text);
-    final amountInValid = enteredAmount == null || enteredAmount <=0;
-    if (_titleController.text.trim().isEmpty || amountInValid || selectedDate == null){
-      showDialog(context: context, builder: (ctx)=>AlertDialog(
-        title: Text('Invalid Input'),
-        content: const Text('Please make sure to enter valid input'),
-        actions: [
-          TextButton(onPressed: (){
-            Navigator.pop(ctx);
-          }, child: Text('Okay'))
-        ],
-      ));
+    final isAmountInvalid = enteredAmount == null || enteredAmount <= 0;
+
+    String? errorMessage;
+
+    // Check each field one by one
+    if (enteredTitle.isEmpty) {
+      errorMessage = 'Please enter a title for the expense.';
+    } else if (isAmountInvalid) {
+      errorMessage = 'Please enter a valid amount greater than 0.';
+    } else if (selectedDate == null) {
+      errorMessage = 'Please select a date.';
     }
-    widget.onAddExpense(ExpenseModel(
-        title: _titleController.text,
-        amount: enteredAmount !,
+
+    // If any validation fails, show a dialog with the exact reason
+    if (errorMessage != null) {
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Invalid Input'),
+          content: Text(errorMessage!),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+              },
+              child: const Text('Okay'),
+            ),
+          ],
+        ),
+      );
+     // return; // stop further execution if invalid
+    }
+
+    // ✅ Only runs if everything is valid
+    widget.onAddExpense(
+      ExpenseModel(
+        title: enteredTitle,
+        amount: enteredAmount!,
         date: selectedDate!,
-        category: selectedCategory
-    ));
+        category: selectedCategory,
+      ),
+    );
   }
+
 
 
   @override
@@ -127,14 +153,14 @@ class _NewexpenseState extends State<Newexpense> {
                 ),
                 Text(selectedDate == null ?'Not Selected':formatter.format(selectedDate!),
                   ),
-                SizedBox(width: 38),
+                SizedBox(width: 30),
                 TextButton(
                     onPressed:(){
                       submitExpense();
                       Navigator.pop(context);
                     },
                     child: Text('Save')),
-                SizedBox(width: 38),
+                SizedBox(width: 30),
                 TextButton(
                     onPressed: () {
                       Navigator.pop(context);
